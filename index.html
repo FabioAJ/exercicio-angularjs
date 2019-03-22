@@ -36,13 +36,13 @@
                 <div class="col-md-4">
                     <div class="form-group form-group-default">
                         <label>Nome</label>
-                        <input class="form-control" type="text" id="nome_suricato" name="nome_suricato" ng-model="nome_suricato">
+                        <input class="form-control" type="text" id="nome_suricato" name="nome_suricato" ng-model="nome_suricato" ng-readonly="!iniciado">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <button ng-click="submeter()" class="btn btn-primary">
+                    <button ng-click="submeter()" class="btn btn-primary" ng-disable="!iniciado">
                         Adicionar
                     </button>
                 </div>
