@@ -10,4 +10,7 @@ angular.module('aplicacao').controller('PrimeiroController', function($scope) {
     $scope.iniciar = function() {
         $scope.iniciado = true;
     }
+    $scope.submeter = function() {
+        $scope.suricatos.push($scope.nome_suricato);
+    }
 });
