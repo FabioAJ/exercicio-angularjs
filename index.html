@@ -1,5 +1,7 @@
 <html>
     <head>
+        <link rel="icon" href="http://s2.glbimg.com/AkMAuhK7l59y5NnVbyK__5ALWLg=/620x465/s.glbimg.com/jo/g1/f/original/2016/10/17/suricato.jpg">
+        <title>Adote um suricato</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta http-equiv="Content-type" content="text/html"; charset="UTF-8">
@@ -21,13 +23,39 @@
                     <p ng-show="iniciado"> Adoção Iniciada! </p>
                     <p ng-hide="iniciado"> Adoção Finalizada! </p>
                     <p ng-if="!iniciado"> Aguarde a Proxima Adoção! </p>
+                    <p>Valor de doação para instituição: {{valor | currency : 'R$ '}}</p>
+                    <p>Ultima atualização: {{hoje | date: 'dd/MM/yyyy'}}</p>
             </div>
         </div>
-        <br><br>
-        <li ng-repeat="suricato in suricatos">
-            {{ suricato }}
-        </li>
-        <br>
+        <div>
+            <label> Definir preço: </label>
+            <input type="number", id="valor" name="valor", ng-model="valor">
+        </div>
+        <h3>Suricatos cadastrados</h3>
+        <div>
+            <label> Filtrar por nome: </label>
+            <input type="text" ng-model="filtro">
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th ng-click="ordenarPorNome()">
+                        Nome
+                    </th>
+                    <th ng-click="ordenarPorIdade()">
+                        Idade
+                    </th>
+                </tr>
+                <tr ng-repeat="suricato in suricatos | filter : filtro">
+                    <td>
+                        {{ suricato.nome }}
+                    </td>
+                    <td>
+                        {{ suricato.idade }}
+                    </td>
+                </tr>
+            </table>
+        </div>
         <button ng-show="iniciado" ng-click="finalizar()" class="btn btn-danger"> Finalizar </button>
         <button ng-show="!iniciado" ng-click="iniciar()" class="btn btn-success"> Iniciar </button>
         <h3> Inscrição de suricatos!</h3>
@@ -36,7 +64,14 @@
                 <div class="col-md-4">
                     <div class="form-group form-group-default">
                         <label>Nome</label>
-                        <input class="form-control" type="text" id="nome_suricato" name="nome_suricato" ng-model="nome_suricato" ng-readonly="!iniciado">
+                        <input class="form-control" type="text" id="nome_suricato" name="nome_suricato" ng-model="nome_suricato" ng-readonly="!iniciado"
+                        ng-minlength="3">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group form-group-default">
+                        <label>Idade</label>
+                        <input class="form-control" type="number" id="idade_suricato" ng-model="idade_suricato">
                     </div>
                 </div>
             </div>
