@@ -84,6 +84,14 @@
             </div>
         </form>
         </div>
+        <div class="well" ng-controller="PrevisaoTempoController">
+            <h3>Demonstrando o ng-resource</h3>
+            <h3>Previsão do tempo</h3>
+            <h4>Uberlândia, Brasil</h4>
+            <h4>Local: {{tempo.name}}</h4>
+            <h4>Temperatura: {{tempo.main.temp}}</h4>
+            <h4>Mínima: {{tempo.main.temp_min}} C e Máxima: {{tempo.main.temp_max}} C</h4>
+        </div>
         <div class="container-fluid container-fixed-lg footer">
             <div class="copyright sm-text-center">
                 <p class="small no-margin pull-left sm-pull-reset">
@@ -94,7 +102,9 @@
             </div>
         </div>
         <script src="scripts/libs/angular.js"></script>
+        <script src="scripts/libs/ngResource.js"></script>
         <script src="scripts/app.js"></script>    
         <script src="scripts/primeiro-controller.js"></script>
+        <script src="scripts/previsao-tempo-controller.js"></script>
     </body>
 </html>
