@@ -4,6 +4,8 @@ angular.module('aplicacao').controller('ListagemSuricatosController', function($
 
     $scope.iniciado = true;
 
+    $scope.cadastrar = false;
+
     $scope.suricatos = SuricatoCollectionService.getSuricatos();
 
     $scope.hoje = new Date();
@@ -24,6 +26,10 @@ angular.module('aplicacao').controller('ListagemSuricatosController', function($
     $scope.ordenarPorIdade = function() {
         SuricatoCollectionService.ordenarPorIdade();
         $scope.suricatos = SuricatoCollectionService.getSuricatos();
+    }
+
+    $scope.exibeCadastro = function() {
+        $scope.cadastrar = !$scope.cadastrar;
     }
 
 });
