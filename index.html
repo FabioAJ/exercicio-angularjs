@@ -1,3 +1,10 @@
+<!--
+Nome do autor: Fabio Augusto Amaro Jaime
+Data de criacao do arquivo: 26/03/2019
+Objetivo sucinto do programa: Simular uma adocao de suricatos usando html, angular e bootstrap
+Referencia ao enunciado/origem do exercicio: https://cursos.timtec.com.br/course/desenvolvimento-web-com-angularjs/intro 
+-->
+
 <html>
 
 <head>
@@ -12,12 +19,12 @@
 
 <body class="container-fluid" ng-app="aplicacao">
     <div class="header-inner">
-        <h1 style="text-align: center; color: blue;">
-            Adoção Suricato
+        <h1 style="text-align: center; color: black;">
+            Ajude um suricato sem lar!!
         </h1>
     </div>
     <nav class="navbar navbar-default" ng-controller="MenuController">
-        <div class="collapse navbar-collapse" id="menu"> 
+        <div class="collapse navbar-collapse" id="menu">
             <ul class="nav navbar-nav">
                 <li><a ng-click="irInicio()">Início</a></li>
                 <li><a ng-click="irListagem()">Suricatos</a></li>
@@ -31,7 +38,7 @@
         <div class="copyright sm-text-center">
             <p class="small no-margin pull-left sm-pull-reset">
                 <span class="hint-text">
-                    Suricatos sao deuses escondidos @ 2019
+                    Esta aplicação tem o intuito de simular uma adoção de suricatos @ 2019
                 </span>
             </p>
         </div>

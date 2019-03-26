@@ -1,5 +1,11 @@
+<!--
+Nome do autor: Fabio Augusto Amaro Jaime
+Data de criacao do arquivo: 26/03/2019
+Objetivo sucinto do programa: Simular uma adocao de suricatos usando html, angular e bootstrap
+Referencia ao enunciado/origem do exercicio: https://cursos.timtec.com.br/course/desenvolvimento-web-com-angularjs/intro 
+-->
+
 <div ng-controller="ListagemSuricatosController" class="well">
-    <p> Ola, {{name}} Bem Vindo! </p>
     <div ng-class="{'panel panel-primary':iniciado, 'panel panel-danger':!iniciado}">
         <div class="panel-heading">
             <h3 class="panel-title"> Situação da adoção</h3>
@@ -8,20 +14,25 @@
             <p ng-show="iniciado"> Adoção Iniciada! </p>
             <p ng-hide="iniciado"> Adoção Finalizada! </p>
             <p ng-if="!iniciado"> Aguarde a Proxima Adoção! </p>
-            <p>Valor de doação para instituição: {{valor | currency : 'R$ '}}</p>
+            <div ng-show="iniciado">
+                <p>Valor de doação para instituição: {{valor | currency : 'R$ '}}</p>
+            </div>
             <p>Ultima atualização: {{hoje | date: 'dd/MM/yyyy'}}</p>
         </div>
     </div>
-    <div>
+    <div ng-show="iniciado">
         <label> Definir preço: </label>
         <input type="number" id="valor" name="valor" ng-model="valor">
     </div>
-    <h3>Suricatos cadastrados</h3>
-    <div>
+    <div ng-show="iniciado">
+        <h3>Suricatos cadastrados</h3>
+    </div>
+    <br>
+    <div ng-show="iniciado">
         <label> Filtrar por nome: </label>
         <input type="text" ng-model="filtro">
     </div>
-    <div class="table-responsive">
+    <div class="table-responsive" ng-show="iniciado">
         <table class="table table-striped">
             <tr>
                 <th ng-click="ordenarPorNome()">
